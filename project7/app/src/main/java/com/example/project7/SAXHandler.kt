@@ -24,13 +24,11 @@ class SAXHandler : DefaultHandler() {
         if(qName != null){
 
             element = qName
-
             validText = true
             if (element.equals( "balloon"))
                 item = Balloon(0,0,0)
 
         }
-
     }
 
 
@@ -47,7 +45,7 @@ class SAXHandler : DefaultHandler() {
                     item!!.setY(text.toInt())
                 else if(element.equals("radius"))
                     item!!.setRadius(text.toInt())
-                Log.w("MainActivity", "text: " + text)
+                //Log.w("MainActivity", "text: " + text)
             }
         }
     }

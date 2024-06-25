@@ -1,6 +1,6 @@
 package com.example.project7
 
-// V1
+
 class Balloon {
     private var x: Int = 0
     private var y: Int = 0

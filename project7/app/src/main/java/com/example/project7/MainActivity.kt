@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         var ballons = handler.getArray()
         for (item in ballons) {
-            Log.w("MainActivity", "item = " + item.toString())
+            Log.w("MainActivity", "" + item.toString())
         }
     }
 }
