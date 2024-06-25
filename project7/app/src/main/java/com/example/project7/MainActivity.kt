@@ -9,6 +9,10 @@ import androidx.core.view.WindowInsetsCompat
 import javax.xml.parsers.SAXParserFactory
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var gameView : GameView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,9 +25,15 @@ class MainActivity : AppCompatActivity() {
         var handler = SAXHandler()
         parser.parse(iStream,handler)
 
+        // gets the parsed values and creates the balloons
         var ballons = handler.getArray()
         for (item in ballons) {
             Log.w("MainActivity", "" + item.toString())
+            gameView = GameView( this, item.getX(),item.getY(), item.getRadius())
+            
         }
+
+        setContentView( gameView )
+
     }
 }
