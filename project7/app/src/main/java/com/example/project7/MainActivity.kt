@@ -13,7 +13,7 @@ import javax.xml.parsers.SAXParserFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var gameView : GameView
-    private var sbHeight : Int = 50
+    private var sbHeight : Int = 0
     private var balloons = Balloons()
 
     override fun onCreate(savedInstanceState: Bundle?) {
