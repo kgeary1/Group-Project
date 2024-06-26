@@ -25,14 +25,22 @@ class MainActivity : AppCompatActivity() {
         var handler = SAXHandler()
         parser.parse(iStream,handler)
 
-        // gets the parsed values and creates the balloons
+
         var ballons = handler.getArray()
+        var xlist :  ArrayList<Int> = ArrayList<Int> ()
+        var ylist :  ArrayList<Int> = ArrayList<Int> ()
+        var radlist :  ArrayList<Int> = ArrayList<Int> ()
+
         for (item in ballons) {
             Log.w("MainActivity", "" + item.toString())
-            gameView = GameView( this, item.getX(),item.getY(), item.getRadius())
-            
+
+            xlist.add(item.getX())
+            ylist.add(item.getY())
+            radlist.add(item.getRadius())
+
         }
 
+        gameView = GameView( this, xlist, ylist, radlist)
         setContentView( gameView )
 
     }
