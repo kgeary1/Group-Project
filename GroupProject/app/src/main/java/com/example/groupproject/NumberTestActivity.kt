@@ -3,6 +3,7 @@ package com.example.groupproject
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.EditText
@@ -36,7 +37,7 @@ class NumberTestActivity : AppCompatActivity() {
         confirm_button.setOnClickListener { check_number() }
         back_button.setOnClickListener { back() }
 
-        resetNum()
+        resetNum(rnd_num)
 
     }
 
@@ -66,7 +67,7 @@ class NumberTestActivity : AppCompatActivity() {
         timer.start()
     }
 
-    fun resetNum() {
+    fun resetNum(view : View) {
         num_test = Number_Mem_Test(this)
         enter_num.text.clear()
         enter_num.setEnabled(false)
@@ -97,7 +98,7 @@ class NumberTestActivity : AppCompatActivity() {
 
             showNum()
         } else {
-            resetNum()
+            resetNum(rnd_num)
         }
     }
 
