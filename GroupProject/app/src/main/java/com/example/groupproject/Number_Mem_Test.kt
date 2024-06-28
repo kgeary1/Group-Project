@@ -8,44 +8,49 @@ import kotlin.random.Random
 
 class Number_Mem_Test {
 
-    private var num_amount = 1
+
+    private var num_amount = 0
     private var score = 0
-    private var best_score = 0
     private var the_number = 0
 
-//    constructor(context: Context) {
-//        var pref : SharedPreferences =
-//            context.getSharedPreferences( context.packageName + "_preferences" , Context.MODE_PRIVATE )
-//        setScore( pref.getInt(PREFERENCE_SCORE.toString(), 0 ) )
-//    }
-//
-//
-//    fun setScore(s : Int) {
-//        best_score = s
-//    }
+    constructor(context: Context) {
+        var pref : SharedPreferences =
+            context.getSharedPreferences( context.packageName + "_preferences" , Context.MODE_PRIVATE )
 
-    constructor() {
-
+        score = pref.getInt(MainActivity.PREF_SCORE_NUM, 0 )
     }
 
-    fun updateScore() : Int {
-        score += 1
+    fun getScore() : Int {
         return score
     }
 
+    fun highScore() : Boolean {
+        if(num_amount > score) {
+            score = num_amount
+            return true
+        }
+        return false
+    }
 
-    fun gen_Number(context : Context) {
+    fun getNumAmount() : Int {
+        return num_amount
+    }
+
+
+    fun gen_Number(context : Context) : Int{
         var num = ""
         var i = 0
 
+        num_amount++
+
         while (i < num_amount) {
             num += "" + Random.nextInt(1, 10)
-            i += 1
+            i++
         }
 
-        Toast.makeText(context, "" + num, Toast.LENGTH_SHORT).show()
-        num_amount += 1
         the_number = num.toInt()
+
+        return the_number
     }
 
     fun check(num : Int) : Boolean {
@@ -55,17 +60,14 @@ class Number_Mem_Test {
             return false
     }
 
-//    fun setPreferences( context : Context ) {
-//        var pref : SharedPreferences =
-//            context.getSharedPreferences( context.packageName + "_preferences" , Context.MODE_PRIVATE )
-//        var editor : SharedPreferences.Editor = pref.edit()
-//
-//        editor.putInt(PREFERENCE_SCORE, best_score )
-//
-//        editor.commit()
-//    }
-//    companion object {
-//        private const val PREFERENCE_SCORE : String = "score"
-//    }
+    fun setPreferences( context : Context ) {
+        var pref : SharedPreferences =
+            context.getSharedPreferences( context.packageName + "_preferences" , Context.MODE_PRIVATE )
+        var editor : SharedPreferences.Editor = pref.edit()
+
+        editor.putInt(MainActivity.PREF_SCORE_NUM, score )
+
+        editor.commit()
+    }
 
 }

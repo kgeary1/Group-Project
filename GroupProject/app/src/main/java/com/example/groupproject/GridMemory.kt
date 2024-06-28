@@ -6,11 +6,6 @@ import kotlin.random.Random
 
 class GridMemory {
 
-    companion object {
-        private const val PREF_PATTERN_SCORE:
-                String = "high score"
-    }
-
     private var size = 3
     private var squares = 3
     private var pattern : HashSet<GridButton> = HashSet<GridButton>()
@@ -22,7 +17,7 @@ class GridMemory {
             context!!.getSharedPreferences(context.packageName +
                     "_preferences", Context.MODE_PRIVATE)
 
-        score = pref.getInt(PREF_PATTERN_SCORE, 0)
+        score = pref.getInt(MainActivity.PREF_SCORE_GRID, 0)
 
     }
 
@@ -31,7 +26,7 @@ class GridMemory {
             context.getSharedPreferences( context.packageName + "_preferences", Context.MODE_PRIVATE)
         val editor : SharedPreferences.Editor = pref.edit()
 
-        editor.putInt( PREF_PATTERN_SCORE, score )
+        editor.putInt( MainActivity.PREF_SCORE_GRID, score )
 
         editor.commit()
     }

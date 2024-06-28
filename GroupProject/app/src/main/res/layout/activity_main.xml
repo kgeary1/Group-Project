@@ -18,5 +18,27 @@
         android:layout_centerHorizontal="true"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number Test"
+        android:textSize="32sp"
+        android:id="@+id/num_test"
+        android:layout_below="@+id/set_shift"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:onClick="launchNumTest"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grid Test"
+        android:textSize="32sp"
+        android:id="@+id/grid_test"
+        android:layout_below="@+id/num_test"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:onClick="launchGridTest"/>
+
 
 </RelativeLayout>

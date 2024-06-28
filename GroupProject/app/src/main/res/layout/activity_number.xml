@@ -10,13 +10,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Number Memorization Test"
-        android:textSize="32sp"
+        android:textSize="30sp"
         android:layout_centerHorizontal="true"
         android:id="@+id/test_text"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score : 0"
+        android:textSize="32sp"
+        android:layout_below="@+id/test_text"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/score"
+        />
+
+    <!-- <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="APP NAME"
@@ -25,6 +37,33 @@
         android:id="@+id/app_name"
         android:layout_marginTop="20dp"
         />
+    -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:layout_below="@id/test_text"
+        android:layout_marginTop="120dp"
+        android:id="@+id/rndNum"
+        />
+
+    <ProgressBar
+        android:id="@+id/determinateBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@+id/rndNum"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:progress="0"
+        android:rotation="180"
+        android:progressTintMode="src_atop"
+        android:progressTint="@color/blue"
+        android:progressBackgroundTintMode="src_atop"
+        android:progressBackgroundTint="@color/black"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,20 +72,8 @@
         android:layout_centerHorizontal="true"
         android:textSize="40sp"
         android:layout_below="@id/test_text"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="240dp"
         android:id="@+id/edit_num"
-        android:inputType="number"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textSize="40sp"
-        android:layout_below="@+id/test_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
-        android:id="@+id/back_button"
         />
 
     <Button
@@ -56,19 +83,35 @@
         android:textSize="35sp"
         android:layout_below="@+id/test_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="330dp"
+        android:layout_marginTop="350dp"
         android:id="@+id/confirm_num"
         />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score : 0"
-        android:textSize="45sp"
+        android:text="Reset"
+        android:textSize="32sp"
         android:layout_below="@+id/test_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:id="@+id/score"
+        android:layout_marginTop="450dp"
+        android:id="@+id/resetNum"
+        android:onClick="resetNum"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="32sp"
+        android:layout_below="@+id/test_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="540dp"
+        android:id="@+id/back_button"
+        />
+
+
+
+
 
 </RelativeLayout>
