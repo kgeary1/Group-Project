@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number Memorization Test"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/test_text"
+        android:layout_marginTop="100dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="APP NAME"
+        android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/app_name"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter The Number"
+        android:layout_centerHorizontal="true"
+        android:textSize="40sp"
+        android:layout_below="@id/test_text"
+        android:layout_marginTop="200dp"
+        android:id="@+id/edit_num"
+        android:inputType="number"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textSize="40sp"
+        android:layout_below="@+id/test_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="430dp"
+        android:id="@+id/back_button"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Number"
+        android:textSize="35sp"
+        android:layout_below="@+id/test_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330dp"
+        android:id="@+id/confirm_num"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score : 0"
+        android:textSize="45sp"
+        android:layout_below="@+id/test_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:id="@+id/score"
+        />
+
+</RelativeLayout>
