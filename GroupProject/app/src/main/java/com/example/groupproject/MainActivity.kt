@@ -4,17 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
-
 import android.widget.TextView
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,11 +16,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //since we hav
+        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         var myIntent: Intent = Intent(this, NumberTestActivity::class.java)
         startActivity(myIntent)
+
+        var intent : Intent =
+            Intent( this, GridMemoryActivity::class.java)
+
+        this.startActivity(intent)
     }
 
     fun modData() {
@@ -39,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             the_message.text = "NUMBER MUST BE BETWEEN 1 AND 25"
         }
+
     }
-
 }
-
