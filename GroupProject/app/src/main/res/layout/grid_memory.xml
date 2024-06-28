@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Score: 0"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:id="@+id/highScore"
+            android:textSize="36sp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rel1"
+            android:layout_below="@+id/highScore">
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rel2"
+            android:layout_below="@+id/rel1"
+            android:layout_marginTop="60dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/reset"
+                android:text="Reset"
+                android:textSize="36sp"
+                android:onClick="reset"
+                android:layout_centerHorizontal="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sequence Instructions"
+                android:layout_below="@+id/reset"
+                android:layout_marginTop="60dp"
+                android:padding="30dp"
+                android:textSize="24sp"
+                android:id="@+id/tv"
+                android:layout_centerHorizontal="true"
+                android:background="#8FF0"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:onClick="home"
+                android:layout_below="@+id/tv"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="60dp"
+                android:layout_centerHorizontal="true"
+                android:textSize="36sp"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
