@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss>
+    <balloon>
+        <x>150</x>
+        <y>100</y>
+        <radius>60</radius>
+    </balloon>
+    <balloon>
+        <x>700</x>
+        <y>500</y>
+        <radius>100</radius>
+    </balloon>
+</rss>
