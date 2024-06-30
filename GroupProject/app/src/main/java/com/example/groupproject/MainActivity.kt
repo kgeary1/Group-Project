@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         this.startActivity(intent)
     }
 
+    fun launchMapGame(view : View){
+        var intent : Intent = Intent( this, MapGameActivity::class.java)
+        this.startActivity(intent)
+    }
+
     fun modData() {
         var res = 0
         if (res == 0) {

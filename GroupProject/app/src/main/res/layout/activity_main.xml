@@ -40,5 +40,15 @@
         android:layout_marginTop="50dp"
         android:onClick="launchGridTest"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map Test"
+        android:textSize="32sp"
+        android:id="@+id/map_test"
+        android:layout_below="@+id/grid_test"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:onClick="launchMapGame"/>
 
 </RelativeLayout>
