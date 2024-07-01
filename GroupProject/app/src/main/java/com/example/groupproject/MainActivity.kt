@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
                 String = "grid high score"
         internal const val PREF_SCORE_NUM :
                 String = "num high score"
+        internal const val PREF_SCORE_MAP :
+                String = "map high score"
     }
 
     private lateinit var b1 : Button
