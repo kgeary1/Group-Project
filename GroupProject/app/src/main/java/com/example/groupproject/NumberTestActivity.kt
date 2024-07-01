@@ -103,6 +103,9 @@ class NumberTestActivity : AppCompatActivity() {
     }
 
     fun back() {
+        MainActivity.addData = true
+        MainActivity.key = "num"
+        MainActivity.score = num_test.getScore()
         finish()
     }
 

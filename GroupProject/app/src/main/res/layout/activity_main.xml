@@ -51,4 +51,15 @@
         android:layout_marginTop="50dp"
         android:onClick="launchMapGame"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Stats"
+        android:textSize="32sp"
+        android:id="@+id/stat_view"
+        android:layout_below="@+id/map_test"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:onClick="launchStatView"/>
+
 </RelativeLayout>
