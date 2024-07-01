@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sequence Instructions"
+                android:text="You will have 3 seconds to memorize the black squares as they appear in the grid. Once they disappear, you must click where each one was (order does not matter) to reach the next level."
                 android:layout_below="@+id/reset"
                 android:layout_marginTop="60dp"
                 android:padding="30dp"

@@ -14,7 +14,7 @@
         android:id = "@+id/set_shift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         />
 
@@ -61,5 +61,28 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:onClick="launchStatView"/>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rating"
+        android:layout_below="@+id/stat_view"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:stepSize="0.5"
+        android:progressBackgroundTint="#AA000000"
+        android:progressTint="#FFFFFF00"
+        android:secondaryProgressTint="@color/blue"
+        android:rating="2.5"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/avg_rating"
+        android:layout_below="@+id/rating"
+        android:layout_centerHorizontal="true"
+        />
 
 </RelativeLayout>

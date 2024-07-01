@@ -2,26 +2,28 @@
 package com.example.groupproject
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RatingBar
 import android.widget.TextView
-import com.google.android.gms.ads.interstitial.InterstitialAd
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.firebase.Firebase
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.firestore.*
-import java.util.HashMap
+import com.google.firebase.firestore.AggregateField
+import com.google.firebase.firestore.AggregateSource
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.firestore
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,6 +45,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var the_message : TextView
     private lateinit var ad : InterstitialAd
     private lateinit var firebase : FirebaseFirestore
+    private lateinit var ratingBar : RatingBar
+    private lateinit var avgRating : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,9 +54,50 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         firebase = Firebase.firestore
-        val fb = firebase.collection("fb")
+
+        ratingBar = findViewById(R.id.rating)
+        avgRating = findViewById(R.id.avg_rating)
+
+
+        ratingBar.setOnRatingBarChangeListener { rb, r, f ->
+
+
+            var rating = r.toDouble()
+
+            var data = HashMap<String, Double>()
+            data.put("rating", rating)
+            firebase.collection("fb").add(data)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(
+                        "MainActivity",
+                        "DocumentSnapshot added with ID: ${documentReference.id}"
+                    )
+                }
+                .addOnFailureListener { e ->
+                    Log.w("MainActivity", "Error adding document", e)
+                }
+
+            val query = firebase.collection("fb")
+
+            var aggregateQuery = query.aggregate(AggregateField.average("rating"))
+            aggregateQuery.get(AggregateSource.SERVER).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Aggregate fetched successfully
+                    val snapshot = task.result
+                    avgRating.text = buildString {
+                        append("Average rating : ")
+                        append(snapshot.get(AggregateField.average("rating")))
+                    }
+                } else {
+                    Log.d("MainActivity", "Aggregate failed: ", task.getException())
+                }
+            }
+
+        }
 
     }
+
+
 
     fun launchNumTest(view : View){
         var myIntent: Intent = Intent(this, NumberTestActivity::class.java)

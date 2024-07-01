@@ -32,8 +32,6 @@ class StatViewActivity : AppCompatActivity() {
 
         var firebase = Firebase.firestore
 
-        val fb = firebase.collection("fb")
-
         val query = firebase.collection("fb")
 
         var aggregateQuery = query.aggregate(AggregateField.average("grid"))
