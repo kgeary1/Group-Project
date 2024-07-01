@@ -3,6 +3,7 @@ package com.example.groupproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,14 @@ import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
+import com.google.firebase.Firebase
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.*
+import java.util.HashMap
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,17 +32,25 @@ class MainActivity : AppCompatActivity() {
                 String = "num high score"
         internal const val PREF_SCORE_MAP :
                 String = "map high score"
+        lateinit var key : String
+        var score : Int = 0
+        var addData = false
     }
 
     private lateinit var b1 : Button
     private lateinit var line : EditText
     private lateinit var the_message : TextView
     private lateinit var ad : InterstitialAd
+    private lateinit var firebase : FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
+        firebase = Firebase.firestore
+        val fb = firebase.collection("fb")
+
     }
 
     fun launchNumTest(view : View){
@@ -48,6 +65,11 @@ class MainActivity : AppCompatActivity() {
 
     fun launchMapGame(view : View){
         var intent : Intent = Intent( this, MapGameActivity::class.java)
+        this.startActivity(intent)
+    }
+
+    fun launchStatView(view : View){
+        var intent : Intent = Intent( this, StatViewActivity::class.java)
         this.startActivity(intent)
     }
 
@@ -80,5 +102,18 @@ class MainActivity : AppCompatActivity() {
         var adRequest : AdRequest = AdRequest.Builder().build()
         var adLoad : AdLoad = AdLoad()
         InterstitialAd.load( this, adUnitId, adRequest, adLoad )
+
+
+        if(addData) {
+            var data = HashMap<String, Int>()
+            data.put(key, score)
+            firebase.collection("fb").add(data)
+                .addOnSuccessListener { documentReference ->
+                    Log.d("MainActivity", "DocumentSnapshot added with ID: ${documentReference.id}")
+                }
+                .addOnFailureListener { e ->
+                    Log.w("MainActivity", "Error adding document", e)
+                }
+        }
     }
 }

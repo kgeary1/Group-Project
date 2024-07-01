@@ -46,6 +46,10 @@ class GridMemoryActivity : AppCompatActivity() {
         Log.i("aaaaa", "Before Build")
 
         gridMem = GridMemory(this)
+        tv.text = buildString {
+            append("High Score : ")
+            append(gridMem.getScore())
+        }
         rel = findViewById(R.id.rel1)
         buildGridByCode(gridMem.getSize())
     }
@@ -138,6 +142,9 @@ class GridMemoryActivity : AppCompatActivity() {
     }
 
     fun home(view : View) {
+        MainActivity.addData = true
+        MainActivity.key = "grid"
+        MainActivity.score = gridMem.getScore()
         finish()
     }
 
