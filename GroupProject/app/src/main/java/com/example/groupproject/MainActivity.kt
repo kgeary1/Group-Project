@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 String = "map high score"
         lateinit var key : String
         var score : Int = 0
+        var mapScore : Double = 0.0
         var addData = false
     }
 
@@ -105,15 +106,33 @@ class MainActivity : AppCompatActivity() {
 
 
         if(addData) {
-            var data = HashMap<String, Int>()
-            data.put(key, score)
-            firebase.collection("fb").add(data)
-                .addOnSuccessListener { documentReference ->
-                    Log.d("MainActivity", "DocumentSnapshot added with ID: ${documentReference.id}")
-                }
-                .addOnFailureListener { e ->
-                    Log.w("MainActivity", "Error adding document", e)
-                }
+            if(key != "map") {
+                var data = HashMap<String, Int>()
+                data.put(key, score)
+                firebase.collection("fb").add(data)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(
+                            "MainActivity",
+                            "DocumentSnapshot added with ID: ${documentReference.id}"
+                        )
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("MainActivity", "Error adding document", e)
+                    }
+            } else {
+                var data = HashMap<String, Double>()
+                data.put(key, mapScore)
+                firebase.collection("fb").add(data)
+                    .addOnSuccessListener { documentReference ->
+                        Log.d(
+                            "MainActivity",
+                            "DocumentSnapshot added with ID: ${documentReference.id}"
+                        )
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w("MainActivity", "Error adding document", e)
+                    }
+            }
         }
     }
 }

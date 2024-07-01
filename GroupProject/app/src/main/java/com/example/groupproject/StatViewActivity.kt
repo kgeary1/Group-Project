@@ -64,7 +64,19 @@ class StatViewActivity : AppCompatActivity() {
             }
         }
 
-        mapStat.text = "No Data"
+        aggregateQuery = query.aggregate(AggregateField.average("map"))
+        aggregateQuery.get(AggregateSource.SERVER).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // Aggregate fetched successfully
+                val snapshot = task.result
+                mapStat.text = buildString {
+                    append("Average map total score : ")
+                    append(String.format("%.2f", snapshot.get(AggregateField.average("map"))))
+                }
+            } else {
+                Log.d("MainActivity", "Aggregate failed: ", task.getException())
+            }
+        }
 
     }
 

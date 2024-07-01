@@ -81,6 +81,9 @@ class MapGameActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     fun goHome(view: View) {
+        MainActivity.addData = true
+        MainActivity.key = "map"
+        MainActivity.mapScore = mapGame.getScore()
         finish()
     }
 
