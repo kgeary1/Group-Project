@@ -49,6 +49,8 @@ class MapGameActivity : AppCompatActivity(), OnMapReadyCallback {
 
         mapScore.text = "Total Score:\n" + String.format("%.2f", mapGame.getScore())
 
+        Toast.makeText(this, "Tap the map and get as close to the target as possible!", Toast.LENGTH_LONG).show()
+
         val mapFragment : SupportMapFragment = supportFragmentManager.findFragmentById( R.id.map ) as SupportMapFragment
 
         mapFragment.getMapAsync( this )
@@ -65,7 +67,7 @@ class MapGameActivity : AppCompatActivity(), OnMapReadyCallback {
         override fun onMapClick(p0: LatLng) {
             currLatLng = p0
             Log.w("MapGameActivity", p0.toString())
-            playerClick.text = "Lat: " + String.format("%.2f", p0.latitude) + "\nLon: " + String.format("%.2f", p0.longitude)
+            playerClick.text = "Your Tap\nLat: " + String.format("%.2f", p0.latitude) + "\nLon: " + String.format("%.2f", p0.longitude)
         }
 
     }
@@ -94,7 +96,7 @@ class MapGameActivity : AppCompatActivity(), OnMapReadyCallback {
             guess.remove()
         }
         playerClick.text = ""
-        latLngView.text = "Lat: " + String.format("%.2f", lat) + "\nLon: " + String.format("%.2f", lon)
+        latLngView.text = "Target:\nLat: " + String.format("%.2f", lat) + "\nLon: " + String.format("%.2f", lon)
         timerView.text = "20"
         timer = object : CountDownTimer(20000, 1) {
             override fun onTick(millisUntilFinished: Long) {
