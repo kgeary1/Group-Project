@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:text = "HOME SCREEN"
+        android:text = "Benchmark Test"
         android:textSize="45sp"
         android:id = "@+id/set_shift"
         android:layout_width="wrap_content"
@@ -27,7 +27,10 @@
         android:layout_below="@+id/set_shift"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="launchNumTest"/>
+        android:onClick="launchNumTest"
+        app:cornerRadius="0dp"
+        android:backgroundTint="@color/blue"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -38,7 +41,10 @@
         android:layout_below="@+id/num_test"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="launchGridTest"/>
+        android:onClick="launchGridTest"
+        app:cornerRadius="0dp"
+        android:backgroundTint="@color/blue"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,7 +55,10 @@
         android:layout_below="@+id/grid_test"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="launchMapGame"/>
+        android:onClick="launchMapGame"
+        app:cornerRadius="0dp"
+        android:backgroundTint="@color/blue"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -60,7 +69,10 @@
         android:layout_below="@+id/map_test"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:onClick="launchStatView"/>
+        android:onClick="launchStatView"
+        app:cornerRadius="0dp"
+        android:backgroundTint="@color/blue"
+        />
 
     <RatingBar
         android:layout_width="wrap_content"
@@ -83,6 +95,7 @@
         android:id="@+id/avg_rating"
         android:layout_below="@+id/rating"
         android:layout_centerHorizontal="true"
+        android:text="Rate Us!"
         />
 
 </RelativeLayout>

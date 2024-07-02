@@ -6,11 +6,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Average User High Scores:"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="28sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/grid_score"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="100dp"
-        android:textSize="32sp"
+        android:layout_marginTop="150dp"
+        android:textSize="28sp"
         />
 
     <TextView
@@ -20,8 +30,8 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_below="@+id/grid_score"
-        android:layout_marginTop="100dp"
-        android:textSize="32sp"
+        android:layout_marginTop="75dp"
+        android:textSize="28sp"
         />
 
     <TextView
@@ -31,8 +41,8 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_below="@+id/num_score"
-        android:layout_marginTop="100dp"
-        android:textSize="32sp"
+        android:layout_marginTop="75dp"
+        android:textSize="28sp"
         />
 
     <Button
@@ -43,7 +53,7 @@
         android:id="@+id/goBack"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/map_score"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="75dp"
         android:onClick="goBack"
         />
 
